@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>our little memory ✦</title>
+
+<!-- ============================================================
+     KONFIGURASI UTAMA — EDIT DI SINI
+     ============================================================ -->
+<script>
+  const CONFIG = {
+    // ── Nama & Sapaan ──────────────────────────────────────────
+    namaKamu: "kanaya nur azizah",               // ubah nama di sini
+    namaPembuat: "fatiirrr",             // ubah nama pembuat di sini
+
+    // ── Pesan Sambutan (Halaman Pembuka) ────────────────────────
+    pesanSambutan: "aku buat ini, karna gmn yah, aku sebagai yang udah sama kamu, tiap' momen indah berarti bngt.. aku mau kenangan kita ini tuh abadi..",
+
+    // ── Pesan Utama ─────────────────────────────────────────────
+    pesanUtama: [
+     "ehh, kamu tau ga...",
+     "aku suka bingung sendiri, kok bisa ya, foto'dari km tuh ngaruh bgt ke aku. cara kamu ketawa, cara kamu cerita, cara kamu tiba-tiba cerita random, semuanya tuh bikin aku ngerasa... yaudah, aku nyaman aja sm km.",
+     "aku gabisa janji kata-kataku bakal bagus, soalnya tiap mau nulis tentang km mau ngetik apa juga gajelas njir. tapi yg jelas, tiap momen sama kamu tuh aku simpen baik-baik dan ABADI.",     
+     "web nya si ga begitu niat,, tapi isinya beneran dari aku. cara aku bilang kalo kamu tuh penting, dan aku sayang bgt sama KAMUUUUUUUUUUU."
+    ],
+
+    // ── Lagu Spotify ────────────────────────────────────────────
+    judulLagu: "About You",           // ubah judul lagu di sini
+    namaPenyanyi: "The 1975",     // ubah nama penyanyi di sini
+    linkSpotify: "https://open.spotify.com/intl-id/track/3hEfpBHxgieRLz4t3kLNEg?si=4f97969fcd5a4208", // ubah link Spotify di sini (hanya sebagai link, bukan sumber audio)
+    coverLagu: "https://i.scdn.co/image/ab67616d0000b2731f44db452a68e229650a302c",                  // isi URL cover lagu (kosongkan untuk default)
+
+    // ── Audio Lagu (WAJIB DIISI untuk tombol play berfungsi) ────
+    // Isi dengan URL langsung ke file .mp3 / .wav / .ogg yang bisa diputar browser.
+    // Contoh: "https://example.com/lagu.mp3"
+    // Catatan: link Spotify TIDAK bisa dipakai di sini.
+    audioSrc: "https://www.dropbox.com/scl/fi/0b18y1chdbn16ua3d9sr8/The-1975-About-You-Official.mp3?rlkey=68roqpaon5q0pufd96bcv8wmu&st=7evg4ciw&dl=1",                   // ubah link audio di sini
+
+    // ── Isi Surat Cinta ──────────────────────────────────────────
+    isiSurat: `Nayaaaaaaa, my jaspren mbg gueh kisah,
+
+aku sebenernya bingung mau nulis apa di sini, takutnya malah aneh wkwk. tapi yaudah, aku cuma pengen buat sesuatu buat kamu..
+
+semoga pas kamu liat ini, kamu senyum dikit. dikit aja juga gapapa.
+
+aku gatau kenapa, tapi tiap sama kamu tuh rasanya beda aja. mau ngobrol random di call, becanda gajelas kek, bahkan diem juga tetep enak ((engga si)).
+
+aku juga gatau harus jelasinnya gimana, pokoknya aku seneng banget bisa kenal kamu. aku pengen masih banyak cerita sama kamu, APAPUN juga gapapa, asal sama kamu.
+
+jangan berubah yaa. tetep jadi naya yang aku suka (CAKEPPP). yang bikin nyaman, kangen, sama pengen deket terus. 
+
+loveeee youuu<33
+
+always you,
+fatiirrr`,
+
+    // ── Kalimat Penutup ──────────────────────────────────────────
+    kalimatPenutup: "makasih udah baca sampai sini. kamu spesial, selalu.",
+
+    // ── Kenangan ─────────────────────────────────────────────────
+    kenangan: [
+      {
+        tanggal: "Januari 2026",
+        judul: "Awal dari Semuanya",
+        deskripsi: "Hari itu aku nggak nyangka kalau satu percakapan bisa mengubah banyak hal. Tapi ternyata bisa.",
+        foto: "1.png",
+        emoji: "🌸"
+      },
+      {
+        tanggal: "Maret 2026",
+        judul: "Hari yang Nggak Terlupakan",
+        deskripsi: "Ada momen-momen yang nggak perlu difoto buat diingat. Ini salah satunya.",
+        foto: "file_000000001e1472088ee64c3ebc05dc4a.png",
+        emoji: "☕"
+      },
+      {
+        tanggal: "Juni 2026",
+        judul: "Ketawa Bareng",
+        deskripsi: "Aku lupa apa yang kita obrolin, tapi aku inget banget cara kamu ketawa waktu itu.",
+        foto: "",
+        emoji: "✨"
+      },
+      {
+        tanggal: "Sekarang",
+        judul: "Cerita yang Masih Berlanjut",
+        deskripsi: "Dan ini bukan akhirnya. Ini cuma salah satu halaman dari buku yang masih terus ditulis.",
+        foto: "",
+        emoji: "💌"
+      }
+    ],
+
+    // ── Galeri Foto ──────────────────────────────────────────────
+    // kosongkan src untuk tampilkan placeholder
+    galeri: [
+      { src: "", caption: "moment pertama ✦" },
+      { src: "", caption: "hanya kita" },
+      { src: "", caption: "senyum kamu" },
+      { src: "", caption: "cahaya sore" },
+      { src: "", caption: "di sini, bareng" },
+      { src: "", caption: "kenangan favoritku" }
+    ],
+
+    // ── Warna Tema ────────────────────────────────────────────────
+    // Ganti nilai hex di bawah untuk mengubah tema warna
+    warna: {
+      primary:    "#f9a8c9",   // pink utama
+      secondary:  "#fcd5e0",   // pink muda
+      accent:     "#e879a0",   // pink tua/aksen
+      cream:      "#fff8f4",   // latar krem
+      text:       "#5a3a4a",   // warna teks utama
+      textLight:  "#9a7080",   // teks muted
+      gold:       "#e8c4a0",   // sentuhan emas
+    }
+  };
+</script>
+<!-- ============================================================ -->
+
+<style>
+/* ── CSS Variables (diisi dari JS setelah load) ────────────── */
+:root {
+  --primary: #f9a8c9;
+  --secondary: #fcd5e0;
+  --accent: #e879a0;
+  --cream: #fff8f4;
+  --text: #5a3a4a;
+  --text-light: #9a7080;
+  --gold: #e8c4a0;
+  --white: #ffffff;
+  --glass: rgba(255,255,255,0.55);
+  --shadow: 0 8px 40px rgba(232,121,160,0.15);
+  --shadow-soft: 0 4px 20px rgba(90,58,74,0.08);
+  --radius: 24px;
+  --radius-sm: 14px;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+/* ── Typography ───────────────────────────────────────────── */
+.font-display {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-style: italic;
+}
+.font-sans {
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  font-style: normal;
+}
+
+/* ── Loading Screen ───────────────────────────────────────── */
+#loading {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loading.hide { opacity: 0; visibility: hidden; }
+
+.loading-heart {
+  width: 48px; height: 48px;
+  animation: heartbeat 1s ease-in-out infinite;
+}
+.loading-heart svg { width: 100%; height: 100%; }
+.loading-text {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  animation: fadeInOut 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ── Navigation Dots ──────────────────────────────────────── */
+#nav-dots {
+  position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 10px;
+}
+.nav-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--secondary); border: 1.5px solid var(--primary);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.nav-dot.active { background: var(--accent); transform: scale(1.4); }
+.nav-dot:hover { background: var(--primary); transform: scale(1.2); }
+
+/* ── Click Hearts ─────────────────────────────────────────── */
+.click-heart {
+  position: fixed; pointer-events: none; z-index: 9998;
+  font-size: 1.2rem; animation: floatUp 1s ease forwards;
+}
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+}
+
+/* ── Floating Particles ───────────────────────────────────── */
+#particles {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+  position: absolute; border-radius: 50%;
+  background: var(--primary); opacity: 0.12;
+  animation: particleDrift linear infinite;
+}
+
+/* ── Section Base ─────────────────────────────────────────── */
+section {
+  min-height: 100vh; position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 20px;
+}
+
+/* ── Scroll Animation ─────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 1 — PEMBUKA
+   ══════════════════════════════════════════════════════════ */
+#section-pembuka {
+  background: linear-gradient(160deg, #fff0f5 0%, #ffd6e8 40%, #ffe8d0 100%);
+  overflow: hidden;
+}
+
+.pembuka-bg {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.bokeh {
+  position: absolute; border-radius: 50%;
+  filter: blur(60px); opacity: 0.35;
+  animation: bokehDrift 8s ease-in-out infinite alternate;
+}
+.bokeh:nth-child(1) { width: 300px; height: 300px; background: #f9a8c9; top: -80px; left: -60px; animation-delay: 0s; }
+.bokeh:nth-child(2) { width: 200px; height: 200px; background: #fcd5e0; top: 40%; right: -40px; animation-delay: -3s; }
+.bokeh:nth-child(3) { width: 250px; height: 250px; background: #ffe0cc; bottom: -60px; left: 30%; animation-delay: -5s; }
+
+@keyframes bokehDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, -20px) scale(1.05); }
+}
+
+.pembuka-content {
+  text-align: center; position: relative; z-index: 1;
+  max-width: 480px; padding: 20px;
+}
+
+.pembuka-tag {
+  display: inline-block;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.8;
+  margin-bottom: 20px;
+  animation: fadeSlideDown 1s ease 0.3s both;
+}
+
+.pembuka-nama {
+  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+  font-style: italic; font-weight: normal;
+  font-size: clamp(3rem, 15vw, 5.5rem);
+  color: var(--text);
+  line-height: 1.1;
+  animation: fadeSlideDown 1s ease 0.5s both;
+}
+.pembuka-nama span { color: var(--accent); }
+
+.pembuka-sub {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+  color: var(--text-light); margin: 16px 0 32px;
+  line-height: 1.7;
+  animation: fadeSlideDown 1s ease 0.7s both;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--accent), #f07ab0);
+  color: white; border: none; border-radius: 99px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.85rem; letter-spacing: 0.1em; text-transform: lowercase;
+  cursor: pointer; text-decoration: none;
+  box-shadow: 0 6px 28px rgba(232,121,160,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeSlideDown 1s ease 0.9s both;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 36px rgba(232,121,160,0.5); }
+.btn-primary:active { transform: translateY(0) scale(0.98); }
+
+.pembuka-hearts {
+  margin-top: 24px; font-size: 1.3rem; letter-spacing: 8px;
+  animation: fadeSlideDown 1s ease 1.1s both;
+  color: var(--primary);
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 2 — PESAN UTAMA
+   ══════════════════════════════════════════════════════════ */
+#section-pesan {
+  background: linear-gradient(180deg, #fff8f4 0%, #fff0f8 100%);
+}
+
+.section-label {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.75; margin-bottom: 12px;
+}
+
+.pesan-card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(249,168,201,0.3);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  max-width: 480px; width: 100%;
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.pesan-card::before {
+  content: "✦";
+  position: absolute; top: 16px; right: 20px;
+  font-size: 1.5rem; color: var(--primary); opacity: 0.4;
+}
+
+.pesan-intro {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic; font-size: 1.1rem;
+  color: var(--accent); margin-bottom: 20px;
+}
+
+.pesan-body p {
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem; line-height: 1.85;
+  color: var(--text); margin-bottom: 16px;
+}
+.pesan-body p:last-child { margin-bottom: 0; }
+
+.deco-line {
+  width: 48px; height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  border-radius: 99px; margin: 20px 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 3 — KENANGAN / TIMELINE
+   ══════════════════════════════════════════════════════════ */
+#section-kenangan {
+  background: linear-gradient(160deg, #fff0f8 0%, #fff8f0 100%);
+}
+
+.section-title {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic; font-weight: normal;
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
+  color: var(--text); text-align: center;
+  margin-bottom: 8px;
+}
+.section-title span { color: var(--accent); }
+
+.section-subtitle {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.88rem; color: var(--text-light);
+  text-align: center; margin-bottom: 40px;
+}
+
+.timeline {
+  width: 100%; max-width: 480px;
+  display: flex; flex-direction: column; gap: 20px;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute; left: 22px; top: 0; bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, var(--primary), var(--primary), transparent);
+  opacity: 0.4;
+}
+
+.memory-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 20px 20px 56px;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(249,168,201,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.memory-card:hover, .memory-card:active {
+  transform: translateX(6px);
+  box-shadow: var(--shadow);
+}
+
+.memory-dot {
+  position: absolute; left: 12px; top: 22px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+}
+
+.memory-date {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 4px;
+}
+.memory-title {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic;
+  font-size: 1.05rem; color: var(--text);
+  margin-bottom: 6px;
+}
+.memory-desc {
+  font-family: 'Georgia', serif;
+  font-size: 0.84rem; color: var(--text-light);
+  line-height: 1.65;
+}
+.memory-img {
+  width: 100%; border-radius: var(--radius-sm);
+  margin-top: 12px; aspect-ratio: 16/9;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--secondary), var(--cream));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-light); font-size: 0.8rem; font-style: italic;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+}
+.memory-img img { width: 100%; height: 100%; object-fit: cover; }
+.memory-img.placeholder { min-height: 80px; }
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 4 — GALERI
+   ══════════════════════════════════════════════════════════ */
+#section-galeri {
+  background: linear-gradient(180deg, #fff8f0 0%, #fff0f8 100%);
+}
+
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px; width: 100%; max-width: 480px;
+}
+
+.galeri-item {
+  position: relative; border-radius: var(--radius-sm);
+  overflow: hidden; cursor: pointer;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.galeri-item:hover { transform: scale(1.03); box-shadow: var(--shadow); }
+.galeri-item:nth-child(3) { grid-column: span 2; aspect-ratio: 2/1; }
+
+.galeri-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.galeri-item:hover img { transform: scale(1.06); }
+
+.galeri-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 6px; color: var(--white); opacity: 0.7;
+}
+.galeri-placeholder span { font-size: 1.6rem; }
+.galeri-placeholder p { font-size: 0.7rem; font-family: 'Trebuchet MS', sans-serif; letter-spacing: 0.08em; }
+
+.galeri-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(90,58,74,0.6) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.3s ease;
+  display: flex; align-items: flex-end; padding: 12px;
+}
+.galeri-item:hover .galeri-overlay { opacity: 1; }
+.galeri-caption {
+  font-family: 'Georgia', serif;
+  font-style: italic; font-size: 0.78rem;
+  color: white; opacity: 0.95;
+}
+
+/* Modal */
+#modal {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(40,20,30,0.85); backdrop-filter: blur(8px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+#modal.open { display: flex; }
+#modal-img {
+  max-width: min(480px, 90vw); max-height: 80vh;
+  border-radius: var(--radius); object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  animation: zoomIn 0.3s ease;
+}
+#modal-placeholder {
+  max-width: min(480px, 90vw); width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; color: white;
+  animation: zoomIn 0.3s ease;
+}
+#modal-caption {
+  position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+  padding: 8px 20px; border-radius: 99px;
+  color: white; font-family: 'Georgia', serif;
+  font-style: italic; font-size: 0.85rem;
+}
+#modal-close {
+  position: fixed; top: 20px; right: 20px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+  border: none; color: white; font-size: 1.2rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+#modal-close:hover { background: rgba(255,255,255,0.35); }
+
+@keyframes zoomIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 5 — MUSIK
+   ══════════════════════════════════════════════════════════ */
+#section-musik {
+  background: linear-gradient(160deg, #fff0f8 0%, #f8f0ff 100%);
+}
+
+.spotify-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b35 100%);
+  border-radius: var(--radius);
+  padding: 28px; max-width: 380px; width: 100%;
+  box-shadow: 0 16px 50px rgba(20,10,30,0.3);
+  position: relative; overflow: hidden;
+}
+.spotify-card::before {
+  content: "";
+  position: absolute; top: -40%; left: -20%;
+  width: 60%; height: 60%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(249,168,201,0.15) 0%, transparent 70%);
+}
+
+.spotify-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 20px;
+}
+.spotify-logo { font-size: 1.1rem; }
+.spotify-label {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.spotify-cover {
+  width: 100%; aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  margin-bottom: 18px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; position: relative;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.spotify-cover img { width: 100%; height: 100%; object-fit: cover; }
+.spotify-cover-placeholder { font-size: 3rem; }
+
+.spotify-info { margin-bottom: 16px; }
+.spotify-song {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic; font-size: 1.3rem;
+  color: white; margin-bottom: 4px;
+}
+.spotify-artist {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.8rem; color: rgba(255,255,255,0.5);
+}
+
+.progress-bar {
+  width: 100%; height: 3px;
+  background: rgba(255,255,255,0.15); border-radius: 99px;
+  margin-bottom: 6px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 99px;
+  transition: width 0.4s linear;
+}
+
+.progress-times {
+  display: flex; justify-content: space-between;
+  font-size: 0.67rem; color: rgba(255,255,255,0.35);
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-bottom: 16px;
+}
+
+.spotify-controls {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  margin-bottom: 18px;
+}
+.ctrl-btn {
+  background: none; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.5); font-size: 0.9rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.ctrl-btn:hover { color: white; transform: scale(1.1); }
+.ctrl-play {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: white; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(255,255,255,0.2);
+}
+.ctrl-play:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(255,255,255,0.3); }
+
+.waves {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 3px; height: 24px;
+}
+.wave-bar {
+  width: 3px; background: var(--primary); border-radius: 99px; opacity: 0.6;
+  animation: waveDance 1s ease-in-out infinite;
+}
+.wave-bar:nth-child(1) { animation-delay: 0s; }
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+.wave-bar:nth-child(6) { animation-delay: 0.2s; }
+.wave-bar:nth-child(7) { animation-delay: 0.1s; }
+
+@keyframes waveDance {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+.spotify-open {
+  display: block; text-align: center; margin-top: 14px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.72rem; color: rgba(255,255,255,0.35);
+  text-decoration: none; letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+.spotify-open:hover { color: rgba(255,255,255,0.7); }
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 6 — SURAT
+   ══════════════════════════════════════════════════════════ */
+#section-surat {
+  background: linear-gradient(160deg, #fff8f4 0%, #fff0f8 100%);
+}
+
+.envelope-wrap {
+  max-width: 440px; width: 100%; text-align: center;
+}
+
+.envelope {
+  position: relative; cursor: pointer;
+  display: inline-block; margin-bottom: 24px;
+}
+
+.env-body {
+  width: 200px; height: 130px;
+  background: linear-gradient(135deg, var(--secondary), var(--cream));
+  border-radius: 8px 8px 16px 16px;
+  border: 1.5px solid var(--primary);
+  position: relative; overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease;
+}
+.envelope:hover .env-body { transform: scale(1.04); }
+
+.env-flap {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 65px; overflow: hidden;
+}
+.env-flap::before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  width: 200px; height: 130px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  transform-origin: top; transition: transform 0.6s ease;
+}
+.envelope.open .env-flap::before { transform: rotateX(180deg); }
+
+.env-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 65px;
+  overflow: hidden;
+}
+.env-bottom::before {
+  content: "";
+  position: absolute; bottom: 0; left: 0;
+  width: 200px; height: 65px;
+  background: linear-gradient(135deg, var(--secondary), #ffe0ec);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.env-sides::before, .env-sides::after {
+  content: "";
+  position: absolute; top: 0; height: 100%;
+  width: 50%; background: rgba(249,168,201,0.1);
+}
+.env-sides::before { left: 0; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.env-sides::after  { right: 0; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
+
+.env-heart {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem; z-index: 2;
+}
+
+.btn-open-letter {
+  background: none; border: 1.5px solid var(--primary);
+  border-radius: 99px; padding: 10px 28px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: lowercase;
+  color: var(--accent); cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.btn-open-letter:hover { background: var(--primary); color: white; }
+
+.letter-content {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-align: left;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(249,168,201,0.2);
+  max-height: 0; overflow: hidden;
+  transition: max-height 1.2s ease, opacity 0.6s ease, padding 0.4s ease;
+  opacity: 0;
+  position: relative;
+}
+.letter-content::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
+  border-radius: 4px 4px 0 0;
+}
+.letter-content.open {
+  max-height: 1000px; opacity: 1; padding: 32px 28px;
+  margin-top: 20px;
+}
+.letter-lines {
+  position: absolute; inset: 20px; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 31px,
+    rgba(249,168,201,0.12) 31px, rgba(249,168,201,0.12) 32px
+  );
+  background-size: 100% 32px;
+  background-position: 0 36px;
+}
+.letter-text {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.9rem; line-height: 2;
+  color: var(--text); white-space: pre-line;
+  position: relative; z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 7 — PENUTUP
+   ══════════════════════════════════════════════════════════ */
+#section-penutup {
+  background: linear-gradient(160deg, #ffd6e8 0%, #ffe8d0 60%, #fff0f5 100%);
+  text-align: center;
+}
+
+.penutup-icon {
+  font-size: 3rem; margin-bottom: 20px;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.penutup-title {
+  font-family: 'Palatino Linotype', serif;
+  font-style: italic; font-weight: normal;
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: var(--text); margin-bottom: 16px;
+}
+
+.penutup-msg {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.95rem; color: var(--text-light);
+  max-width: 340px; margin: 0 auto 32px;
+  line-height: 1.8;
+}
+
+.stars-rain {
+  pointer-events: none;
+  position: absolute; inset: 0; overflow: hidden;
+}
+.star-fall {
+  position: absolute; font-size: 0.9rem;
+  animation: starFall linear infinite; opacity: 0;
+}
+@keyframes starFall {
+  0%   { opacity: 0; transform: translateY(-20px); }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100vh); }
+}
+
+.btn-ulang {
+  display: inline-block; padding: 14px 32px;
+  border: 1.5px solid var(--accent); border-radius: 99px;
+  color: var(--accent); text-decoration: none;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: lowercase;
+  cursor: pointer; transition: all 0.3s ease;
+  background: none;
+  margin: 8px;
+}
+.btn-ulang:hover {
+  background: var(--accent); color: white;
+  box-shadow: 0 6px 24px rgba(232,121,160,0.35);
+  transform: translateY(-2px);
+}
+
+.penutup-credits {
+  margin-top: 40px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.15em;
+  color: var(--text-light); opacity: 0.6;
+  text-transform: uppercase;
+}
+
+/* ── Floating hearts decoration ─────────────────────────── */
+.float-hearts {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.float-h {
+  position: absolute; bottom: -20px;
+  font-size: 1rem; opacity: 0;
+  animation: floatRise linear infinite;
+}
+@keyframes floatRise {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-110vh) rotate(30deg); }
+}
+
+/* ── Romantic Falling Flowers (penutup) ──────────────────── */
+.flowers-container {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+}
+.flower-petal {
+  position: absolute; top: -60px;
+  opacity: 0;
+  animation: petalFall linear infinite;
+  transform-origin: center;
+}
+@keyframes petalFall {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg) scale(1); }
+  8%   { opacity: 0.85; }
+  85%  { opacity: 0.65; }
+  100% { opacity: 0; transform: translateY(105vh) rotate(540deg) scale(0.7); }
+}
+.petal-ground {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 80px; pointer-events: none; overflow: hidden;
+}
+.petal-g {
+  position: absolute; bottom: 0;
+  opacity: 0; animation: groundSettle 2s ease-out forwards;
+}
+@keyframes groundSettle {
+  0%   { opacity: 0; transform: translateY(16px) rotate(0deg); }
+  100% { opacity: 0.5; transform: translateY(0) rotate(var(--r, 20deg)); }
+}
+.corner-flower {
+  position: absolute; pointer-events: none; opacity: 0.15;
+}
+.corner-flower.tl { top: 12px; left: 12px; }
+.corner-flower.tr { top: 12px; right: 12px; transform: scaleX(-1); }
+.corner-flower.bl { bottom: 90px; left: 12px; transform: scaleY(-1); }
+.corner-flower.br { bottom: 90px; right: 12px; transform: scale(-1,-1); }
+.corner-flower svg { width: 90px; height: 90px; }
+
+</style>
+</head>
+<body>
+
+<!-- ══ LOADING ═══════════════════════════════════════════════ -->
+<div id="loading">
+  <div class="loading-heart">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 40s-16-10-16-22c0-6 4-10 8-10 3 0 6 2 8 6 2-4 5-6 8-6 4 0 8 4 8 10 0 12-16 22-16 22z" fill="#f9a8c9"/>
+    </svg>
+  </div>
+  <div class="loading-text">menyiapkan cerita kita...</div>
+</div>
+
+<!-- ══ PARTICLES ═════════════════════════════════════════════ -->
+<div id="particles"></div>
+
+<!-- ══ NAV DOTS ══════════════════════════════════════════════ -->
+<div id="nav-dots"></div>
+
+<!-- ══ MODAL GALERI ══════════════════════════════════════════ -->
+<div id="modal" role="dialog" aria-modal="true">
+  <button id="modal-close" aria-label="tutup">✕</button>
+  <img id="modal-img" src="" alt="" style="display:none">
+  <div id="modal-placeholder" style="display:none">
+    <span style="font-size:3rem">🖼️</span>
+    <p style="font-family:'Georgia',serif; font-style:italic; color:white; opacity:0.7; font-size:0.9rem">foto belum ditambahkan</p>
+  </div>
+  <div id="modal-caption"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — PEMBUKA
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-pembuka" data-section="0">
+  <div class="pembuka-bg">
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+  </div>
+
+  <div class="float-hearts" id="float-hearts-1"></div>
+
+  <div class="pembuka-content">
+    <div class="pembuka-tag font-sans">✦ special for you ✦</div>
+    <h1 class="pembuka-nama font-display">
+      untuk<br><span id="nama-display"></span>
+    </h1>
+    <p class="pembuka-sub font-display" id="pesan-sambutan-el"></p>
+    <a href="#section-musik" class="btn-primary font-sans" id="btn-buka">buka cerita kita ✦</a>
+    <div class="pembuka-hearts">♡ ♡ ♡</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — MUSIK
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-musik" data-section="1">
+  <div class="section-label font-sans reveal">✦ lagu yang mengingatkanku padamu</div>
+  <div class="spotify-card reveal">
+    <div class="spotify-header">
+      <span class="spotify-logo">🎵</span>
+      <span class="spotify-label font-sans">Now Playing</span>
+    </div>
+    <div class="spotify-cover" id="spotify-cover-el">
+      <div class="spotify-cover-placeholder">🎵</div>
+    </div>
+    <div class="spotify-info">
+      <div class="spotify-song font-display" id="spotify-song-el"></div>
+      <div class="spotify-artist font-sans" id="spotify-artist-el"></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="progress-times font-sans">
+      <span id="progress-time">0:00</span><span>0:00</span>
+    </div>
+    <div class="spotify-controls">
+      <button class="ctrl-btn" aria-label="sebelumnya">⏮</button>
+      <button class="ctrl-play" id="play-btn" aria-label="play/pause">▶</button>
+      <button class="ctrl-btn" aria-label="berikutnya">⏭</button>
+    </div>
+    <div class="waves">
+      <div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <a href="#" id="spotify-link-el" class="spotify-open font-sans" target="_blank" rel="noopener">buka di spotify →</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — PESAN UTAMA
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-pesan" data-section="2">
+  <div class="section-label font-sans reveal">✦ sebuah pesan untukmu</div>
+  <div class="pesan-card reveal">
+    <p class="pesan-intro font-display" id="pesan-intro-el"></p>
+    <div class="deco-line"></div>
+    <div class="pesan-body" id="pesan-body-el"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 4 — GALERI
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-galeri" data-section="3">
+  <div class="section-label font-sans reveal">✦ galeri kita</div>
+  <h2 class="section-title reveal font-display">momen yang <span>aku suka</span></h2>
+  <p class="section-subtitle reveal">klik foto untuk lihat lebih dekat 🌸</p>
+  <div class="galeri-grid" id="galeri-grid-el"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 5 — SURAT
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-surat" data-section="4">
+  <div class="section-label font-sans reveal">✦ ada surat untukmu</div>
+  <h2 class="section-title reveal font-display">buka <span>suratnya</span></h2>
+  <p class="section-subtitle reveal">kalau udah siap 💌</p>
+
+  <div class="envelope-wrap reveal">
+    <div class="envelope" id="envelope-el" onclick="toggleLetter()">
+      <div class="env-body">
+        <div class="env-flap"></div>
+        <div class="env-bottom"></div>
+        <div class="env-sides"></div>
+        <div class="env-heart">💌</div>
+      </div>
+    </div>
+    <br>
+    <button class="btn-open-letter font-sans" onclick="toggleLetter()">buka suratnya ✦</button>
+
+    <div class="letter-content" id="letter-content-el">
+      <div class="letter-lines"></div>
+      <pre class="letter-text font-display" id="letter-text-el"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 6 — KENANGAN
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-kenangan" data-section="5">
+  <div class="section-label font-sans reveal">✦ kenangan kita</div>
+  <h2 class="section-title reveal font-display">cerita yang <span>nggak terlupakan</span></h2>
+  <p class="section-subtitle reveal">setiap momen, tersimpan di sini ❤</p>
+  <div class="timeline" id="timeline-el"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 7 — PENUTUP
+     ══════════════════════════════════════════════════════════ -->
+<section id="section-penutup" data-section="6">
+  <div class="stars-rain" id="stars-rain"></div>
+  <div class="float-hearts" id="float-hearts-2"></div>
+  <div class="flowers-container" id="flowers-container"></div>
+
+  <!-- Bunga sudut dekoratif -->
+  <div class="corner-flower tl">
+    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="1">
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(0 45 45)"/>
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(60 45 45)"/>
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(120 45 45)"/>
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(180 45 45)"/>
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(240 45 45)"/>
+        <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(300 45 45)"/>
+        <circle cx="45" cy="45" r="9" fill="#e8c4a0"/>
+        <circle cx="45" cy="45" r="5" fill="#fff8f4"/>
+      </g>
+    </svg>
+  </div>
+  <div class="corner-flower tr">
+    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(0 45 45)"/>
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(60 45 45)"/>
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(120 45 45)"/>
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(180 45 45)"/>
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#fcd5e0" transform="rotate(240 45 45)"/>
+      <ellipse cx="45" cy="22" rx="10" ry="18" fill="#f9a8c9" transform="rotate(300 45 45)"/>
+      <circle cx="45" cy="45" r="9" fill="#e879a0"/>
+      <circle cx="45" cy="45" r="5" fill="#fff0f5"/>
+    </svg>
+  </div>
+  <div class="corner-flower bl">
+    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#f9a8c9" transform="rotate(0 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#ffe0ec" transform="rotate(72 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#f9a8c9" transform="rotate(144 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#ffe0ec" transform="rotate(216 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#f9a8c9" transform="rotate(288 45 45)"/>
+      <circle cx="45" cy="45" r="8" fill="#e8c4a0"/>
+      <circle cx="45" cy="45" r="4" fill="#fff8f4"/>
+    </svg>
+  </div>
+  <div class="corner-flower br">
+    <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#ffe0ec" transform="rotate(0 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#f9a8c9" transform="rotate(72 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#ffe0ec" transform="rotate(144 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#f9a8c9" transform="rotate(216 45 45)"/>
+      <ellipse cx="45" cy="22" rx="8" ry="15" fill="#ffe0ec" transform="rotate(288 45 45)"/>
+      <circle cx="45" cy="45" r="8" fill="#e879a0"/>
+      <circle cx="45" cy="45" r="4" fill="#fff0f5"/>
+    </svg>
+  </div>
+
+  <div class="petal-ground" id="petal-ground"></div>
+
+  <div class="reveal">
+    <div class="penutup-icon">💕</div>
+    <h2 class="penutup-title font-display">sampai selalu,<br><em id="nama-penutup-el"></em></h2>
+    <p class="penutup-msg font-display" id="pesan-penutup-el"></p>
+
+    <div>
+      <a href="#section-pembuka" class="btn-ulang font-sans">↑ dari awal lagi</a>
+      <a href="#section-kenangan" class="btn-ulang font-sans">♡ lihat kenangan</a>
+    </div>
+
+    <div class="penutup-credits font-sans" id="credits-el"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════════════════════════════ -->
+<script>
+/* ── Apply CSS Variables from CONFIG ─────────────────────── */
+(function applyTheme() {
+  const root = document.documentElement;
+  const w = CONFIG.warna;
+  root.style.setProperty('--primary',    w.primary);
+  root.style.setProperty('--secondary',  w.secondary);
+  root.style.setProperty('--accent',     w.accent);
+  root.style.setProperty('--cream',      w.cream);
+  root.style.setProperty('--text',       w.text);
+  root.style.setProperty('--text-light', w.textLight);
+  root.style.setProperty('--gold',       w.gold);
+})();
+
+/* ── Populate Content ────────────────────────────────────── */
+function populate() {
+  // Halaman pembuka
+  document.getElementById('nama-display').textContent = CONFIG.namaKamu;
+  document.getElementById('pesan-sambutan-el').textContent = CONFIG.pesanSambutan;
+
+  // Pesan utama
+  document.getElementById('pesan-intro-el').textContent = CONFIG.pesanUtama[0];
+  const body = document.getElementById('pesan-body-el');
+  CONFIG.pesanUtama.slice(1).forEach(p => {
+    const el = document.createElement('p');
+    el.textContent = p;
+    body.appendChild(el);
+  });
+
+  // Spotify
+  document.getElementById('spotify-song-el').textContent   = CONFIG.judulLagu;
+  document.getElementById('spotify-artist-el').textContent = CONFIG.namaPenyanyi;
+  document.getElementById('spotify-link-el').href          = CONFIG.linkSpotify;
+  if (CONFIG.coverLagu) {
+    const cover = document.getElementById('spotify-cover-el');
+    cover.innerHTML = `<img src="${CONFIG.coverLagu}" alt="cover lagu" onerror="this.parentElement.innerHTML='<div class=\\'spotify-cover-placeholder\\'>🎵</div>'">`;
+  }
+
+  // Surat
+  document.getElementById('letter-text-el').textContent = CONFIG.isiSurat;
+
+  // Penutup
+  document.getElementById('nama-penutup-el').textContent   = CONFIG.namaKamu;
+  document.getElementById('pesan-penutup-el').textContent  = CONFIG.kalimatPenutup;
+  document.getElementById('credits-el').textContent        = `dibuat dengan ♡ oleh ${CONFIG.namaPembuat}`;
+
+  // Kenangan
+  buildTimeline();
+
+  // Galeri
+  buildGaleri();
+}
+
+/* ── Build Timeline ──────────────────────────────────────── */
+function buildTimeline() {
+  const container = document.getElementById('timeline-el');
+  CONFIG.kenangan.forEach((item, i) => {
+    const delay = i * 0.15;
+    let imgHTML = '';
+    if (item.foto) {
+      imgHTML = `<div class="memory-img"><img src="${item.foto}" alt="${item.judul}" loading="lazy" onerror="this.parentElement.innerHTML='<span style=\\'font-style:italic;font-size:0.8rem;color:var(--text-light)\\'>foto belum ditambahkan 🌸</span>'"></div>`;
+    } else {
+      imgHTML = `<div class="memory-img placeholder" style="min-height:60px"><span style="font-style:italic;font-size:0.78rem;color:var(--text-light)">ganti src foto di CONFIG.kenangan[${i}].foto 🌸</span></div>`;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'memory-card reveal';
+    card.style.transitionDelay = `${delay}s`;
+    card.innerHTML = `
+      <div class="memory-dot">${item.emoji}</div>
+      <div class="memory-date font-sans">${item.tanggal}</div>
+      <div class="memory-title font-display">${item.judul}</div>
+      <div class="memory-desc">${item.deskripsi}</div>
+      ${imgHTML}
+    `;
+    container.appendChild(card);
+  });
+}
+
+/* ── Build Galeri ────────────────────────────────────────── */
+function buildGaleri() {
+  const grid = document.getElementById('galeri-grid-el');
+  CONFIG.galeri.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'galeri-item reveal';
+    div.style.transitionDelay = `${i * 0.1}s`;
+
+    const innerContent = item.src
+      ? `<img src="${item.src}" alt="${item.caption}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">`
+      : '';
+
+    div.innerHTML = `
+      ${innerContent}
+      <div class="galeri-placeholder" ${item.src ? 'style="display:none"' : ''}>
+        <span>🖼️</span>
+        <p>${item.caption}</p>
+      </div>
+      <div class="galeri-overlay">
+        <span class="galeri-caption font-display">${item.caption}</span>
+      </div>
+    `;
+
+    div.addEventListener('click', () => openModal(item.src, item.caption));
+    grid.appendChild(div);
+  });
+}
+
+/* ── Modal ───────────────────────────────────────────────── */
+function openModal(src, caption) {
+  const modal  = document.getElementById('modal');
+  const img    = document.getElementById('modal-img');
+  const ph     = document.getElementById('modal-placeholder');
+  const capEl  = document.getElementById('modal-caption');
+
+  if (src) {
+    img.src = src; img.alt = caption;
+    img.style.display = 'block'; ph.style.display = 'none';
+  } else {
+    img.style.display = 'none'; ph.style.display = 'flex';
+  }
+  capEl.textContent = caption;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── Letter Toggle ───────────────────────────────────────── */
+function toggleLetter() {
+  const envelope = document.getElementById('envelope-el');
+  const letter   = document.getElementById('letter-content-el');
+  envelope.classList.toggle('open');
+  letter.classList.toggle('open');
+}
+
+/* ── Audio Player (real) ─────────────────────────────────── */
+(function initAudioPlayer() {
+  const playBtn      = document.getElementById('play-btn');
+  const progressFill = document.querySelector('.progress-fill');
+  const timeEl       = document.getElementById('progress-time');
+  const totalTimeEl  = document.querySelector('.progress-times span:last-child');
+
+  // Buat elemen audio
+  const audio = new Audio();
+  audio.preload = 'metadata';
+
+  // Pasang sumber audio dari CONFIG.audioSrc
+  if (CONFIG.audioSrc) {
+    audio.src = CONFIG.audioSrc;
+  }
+
+  // Format detik → m:ss
+  function fmt(s) {
+    if (!isFinite(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, '0')}`;
+  }
+
+  // Tampilkan durasi total setelah metadata dimuat
+  audio.addEventListener('loadedmetadata', () => {
+    totalTimeEl.textContent = fmt(audio.duration);
+  });
+
+  // Update progress bar dan waktu berjalan secara real-time
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    progressFill.style.width = pct + '%';
+    timeEl.textContent = fmt(audio.currentTime);
+  });
+
+  // Reset saat lagu selesai
+  audio.addEventListener('ended', () => {
+    playBtn.textContent = '▶';
+    progressFill.style.width = '0%';
+    timeEl.textContent = '0:00';
+  });
+
+  // Tombol play / pause
+  playBtn.addEventListener('click', function () {
+    if (!CONFIG.audioSrc) {
+      // Belum ada audio, tampilkan petunjuk kecil
+      this.style.background = '#fcd5e0';
+      setTimeout(() => { this.style.background = 'white'; }, 600);
+      return;
+    }
+    if (audio.paused) {
+      audio.play().catch(() => {});
+      this.textContent = '⏸';
+    } else {
+      audio.pause();
+      this.textContent = '▶';
+    }
+  });
+})();
+
+/* ── Romantic Falling Flowers ────────────────────────────── */
+(function createFallingFlowers() {
+  const container = document.getElementById('flowers-container');
+  const ground    = document.getElementById('petal-ground');
+
+  // SVG shapes untuk kelopak bunga
+  const petalSVGs = [
+    // kelopak elips lebar
+    (c) => `<svg width="22" height="28" viewBox="0 0 22 28" fill="none"><ellipse cx="11" cy="14" rx="9" ry="13" fill="${c}" opacity="0.88"/></svg>`,
+    // kelopak lancip
+    (c) => `<svg width="18" height="28" viewBox="0 0 18 28" fill="none"><path d="M9 2 C14 8 16 16 9 26 C2 16 4 8 9 2Z" fill="${c}" opacity="0.85"/></svg>`,
+    // bunga 5 kelopak mini
+    (c) => `<svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <ellipse cx="13" cy="5"  rx="4" ry="7" fill="${c}" opacity="0.8" transform="rotate(0 13 13)"/>
+      <ellipse cx="13" cy="5"  rx="4" ry="7" fill="${c}" opacity="0.8" transform="rotate(72 13 13)"/>
+      <ellipse cx="13" cy="5"  rx="4" ry="7" fill="${c}" opacity="0.8" transform="rotate(144 13 13)"/>
+      <ellipse cx="13" cy="5"  rx="4" ry="7" fill="${c}" opacity="0.8" transform="rotate(216 13 13)"/>
+      <ellipse cx="13" cy="5"  rx="4" ry="7" fill="${c}" opacity="0.8" transform="rotate(288 13 13)"/>
+      <circle cx="13" cy="13" r="4" fill="#e8c4a0"/>
+    </svg>`,
+    // bunga 4 kelopak hati
+    (c) => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <ellipse cx="12" cy="5"  rx="4" ry="6" fill="${c}" opacity="0.82" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="5"  rx="4" ry="6" fill="${c}" opacity="0.82" transform="rotate(90 12 12)"/>
+      <ellipse cx="12" cy="5"  rx="4" ry="6" fill="${c}" opacity="0.82" transform="rotate(180 12 12)"/>
+      <ellipse cx="12" cy="5"  rx="4" ry="6" fill="${c}" opacity="0.82" transform="rotate(270 12 12)"/>
+      <circle cx="12" cy="12" r="3.5" fill="#fff8f4"/>
+    </svg>`,
+    // kelopak bulan sabit
+    (c) => `<svg width="20" height="26" viewBox="0 0 20 26" fill="none"><path d="M10 2 Q18 6 18 13 Q18 20 10 24 Q6 18 6 13 Q6 7 10 2Z" fill="${c}" opacity="0.8"/></svg>`,
+  ];
+
+  const colors = [
+    '#f9a8c9','#fcd5e0','#e879a0','#ffb3cc',
+    '#ffe0ec','#f7c5dc','#ffa8c5','#fce4ee',
+    '#e8c4a0','#f5d0e0'
+  ];
+
+  // Buat 28 kelopak jatuh
+  for (let i = 0; i < 28; i++) {
+    const el    = document.createElement('div');
+    el.className = 'flower-petal';
+
+    const color  = colors[Math.floor(Math.random() * colors.length)];
+    const shape  = petalSVGs[Math.floor(Math.random() * petalSVGs.length)];
+    el.innerHTML = shape(color);
+
+    const size = 0.6 + Math.random() * 1.0;
+    el.style.transform        = `scale(${size})`;
+    el.style.left             = `${Math.random() * 105}%`;
+    el.style.animationDuration= `${5 + Math.random() * 9}s`;
+    el.style.animationDelay   = `${Math.random() * 12}s`;
+    // Sway kiri-kanan saat jatuh via translateX
+    el.style.marginLeft       = `${(Math.random() - 0.5) * 60}px`;
+
+    container.appendChild(el);
+  }
+
+  // Buat kelopak berserakan di bawah (ground)
+  const groundColors = ['#f9a8c9','#fcd5e0','#ffe0ec','#ffa8c5','#e8c4a0'];
+  for (let i = 0; i < 18; i++) {
+    const el    = document.createElement('div');
+    el.className = 'petal-g';
+    const color  = groundColors[Math.floor(Math.random() * groundColors.length)];
+    const shape  = petalSVGs[Math.floor(Math.random() * 2)]; // hanya kelopak simple
+    el.innerHTML = shape(color);
+
+    const size  = 0.5 + Math.random() * 0.8;
+    const rot   = (Math.random() - 0.5) * 160;
+    el.style.setProperty('--r', rot + 'deg');
+    el.style.left           = `${Math.random() * 100}%`;
+    el.style.bottom         = `${Math.random() * 50}px`;
+    el.style.transform      = `scale(${size}) rotate(${rot}deg)`;
+    el.style.animationDelay = `${0.2 + i * 0.15}s`;
+
+    ground.appendChild(el);
+  }
+})();
+
+/* ── Floating Hearts ─────────────────────────────────────── */
+function createFloatingHearts(containerId, count) {
+  const container = document.getElementById(containerId);
+  const hearts = ['♡','♥','🌸','✦','💕','✿'];
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'float-h';
+    el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    el.style.left   = `${Math.random() * 100}%`;
+    el.style.fontSize = `${0.6 + Math.random() * 0.8}rem`;
+    el.style.animationDuration  = `${6 + Math.random() * 8}s`;
+    el.style.animationDelay     = `${Math.random() * 8}s`;
+    el.style.color = ['var(--primary)','var(--accent)','var(--secondary)','var(--gold)'][Math.floor(Math.random()*4)];
+    container.appendChild(el);
+  }
+}
+createFloatingHearts('float-hearts-1', 8);
+createFloatingHearts('float-hearts-2', 12);
+
+/* ── Stars Rain (penutup) ────────────────────────────────── */
+function createStars() {
+  const container = document.getElementById('stars-rain');
+  const symbols = ['✦','✧','⋆','˚','·'];
+  for (let i = 0; i < 20; i++) {
+    const el = document.createElement('div');
+    el.className = 'star-fall';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left   = `${Math.random() * 100}%`;
+    el.style.color  = ['var(--primary)','var(--accent)','var(--gold)','var(--text-light)'][Math.floor(Math.random()*4)];
+    el.style.fontSize = `${0.6 + Math.random() * 0.6}rem`;
+    el.style.animationDuration = `${4 + Math.random() * 6}s`;
+    el.style.animationDelay   = `${Math.random() * 8}s`;
+    container.appendChild(el);
+  }
+}
+createStars();
+
+/* ── Floating Particles ──────────────────────────────────── */
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement('div');
+    el.className = 'particle';
+    const size = 20 + Math.random() * 80;
+    el.style.width  = `${size}px`;
+    el.style.height = `${size}px`;
+    el.style.left   = `${Math.random() * 100}%`;
+    el.style.top    = `${Math.random() * 100}%`;
+    el.style.animationDuration = `${12 + Math.random() * 20}s`;
+    el.style.animationDelay   = `${Math.random() * 10}s`;
+    el.style.animationName    = 'particleDrift';
+    container.appendChild(el);
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `@keyframes particleDrift {
+    0%   { transform: translate(0,0) scale(1); }
+    33%  { transform: translate(${30}px,${-20}px) scale(1.1); }
+    66%  { transform: translate(${-20}px,${30}px) scale(0.9); }
+    100% { transform: translate(0,0) scale(1); }
+  }`;
+  document.head.appendChild(style);
+}
+createParticles();
+
+/* ── Click Hearts Effect ─────────────────────────────────── */
+document.addEventListener('click', function(e) {
+  if (e.target.closest('#modal') || e.target.closest('#nav-dots') || e.target.closest('#loading')) return;
+  const hearts = ['♡','♥','🌸','✦'];
+  const el = document.createElement('div');
+  el.className = 'click-heart';
+  el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  el.style.left = `${e.clientX - 10}px`;
+  el.style.top  = `${e.clientY - 10}px`;
+  el.style.color = CONFIG.warna.accent;
+  document.body.appendChild(el);
+  el.addEventListener('animationend', () => el.remove());
+});
+
+/* ── Navigation Dots ─────────────────────────────────────── */
+const sections = document.querySelectorAll('section[data-section]');
+const navDots  = document.getElementById('nav-dots');
+
+sections.forEach((s, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'nav-dot';
+  dot.title = ['pembuka','musik','pesan','galeri','surat','kenangan','penutup'][i] || `section ${i+1}`;
+  dot.addEventListener('click', () => {
+    s.scrollIntoView({ behavior: 'smooth' });
+  });
+  navDots.appendChild(dot);
+});
+
+const allDots = navDots.querySelectorAll('.nav-dot');
+
+function updateActiveDot() {
+  let current = 0;
+  sections.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.5) current = i;
+  });
+  allDots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
+window.addEventListener('scroll', updateActiveDot, { passive: true });
+updateActiveDot();
+
+/* ── Scroll Reveal ───────────────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer  = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => observer.observe(el));
+
+/* ── Loading Screen ──────────────────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loading').classList.add('hide');
+  }, 1200);
+});
+
+/* ── Init ────────────────────────────────────────────────── */
+populate();
+</script>
+</body>
+</html>
