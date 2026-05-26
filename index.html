@@ -31,10 +31,6 @@
     linkSpotify: "https://open.spotify.com/intl-id/track/3hEfpBHxgieRLz4t3kLNEg?si=4f97969fcd5a4208", // ubah link Spotify di sini (hanya sebagai link, bukan sumber audio)
     coverLagu: "https://i.scdn.co/image/ab67616d0000b2731f44db452a68e229650a302c",                  // isi URL cover lagu (kosongkan untuk default)
 
-    // ── Audio Lagu (WAJIB DIISI untuk tombol play berfungsi) ────
-    // Isi dengan URL langsung ke file .mp3 / .wav / .ogg yang bisa diputar browser.
-    // Contoh: "https://example.com/lagu.mp3"
-    // Catatan: link Spotify TIDAK bisa dipakai di sini.
     audioSrc: "https://www.dropbox.com/scl/fi/0b18y1chdbn16ua3d9sr8/The-1975-About-You-Official.mp3?rlkey=68roqpaon5q0pufd96bcv8wmu&st=7evg4ciw&dl=1",                   // ubah link audio di sini
 
     // ── Isi Surat Cinta ──────────────────────────────────────────
@@ -389,91 +385,42 @@ section {
    SECTION 3 — KENANGAN / TIMELINE
    ══════════════════════════════════════════════════════════ */
 #section-kenangan {
-  background: linear-gradient(160deg, #fff0f8 0%, #fff8f0 100%);
+  min-height: auto !important;
+  height: auto !important;
+  justify-content: flex-start !important;
+  padding: 40px 18px 60px !important;
 }
 
-.section-title {
-  font-family: 'Palatino Linotype', serif;
-  font-style: italic; font-weight: normal;
-  font-size: clamp(1.8rem, 7vw, 2.5rem);
-  color: var(--text); text-align: center;
-  margin-bottom: 8px;
-}
-.section-title span { color: var(--accent); }
-
-.section-subtitle {
-  font-family: 'Georgia', serif;
-  font-style: italic;
-  font-size: 0.88rem; color: var(--text-light);
-  text-align: center; margin-bottom: 40px;
+#section-kenangan .section-subtitle {
+  margin-bottom: 18px !important;
 }
 
-.timeline {
-  width: 100%; max-width: 480px;
-  display: flex; flex-direction: column; gap: 20px;
-  position: relative;
-}
-.timeline::before {
-  content: "";
-  position: absolute; left: 22px; top: 0; bottom: 0;
-  width: 1.5px;
-  background: linear-gradient(180deg, transparent, var(--primary), var(--primary), transparent);
-  opacity: 0.4;
+#section-kenangan .timeline {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-.memory-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 20px 20px 20px 56px;
-  position: relative;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(249,168,201,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-.memory-card:hover, .memory-card:active {
-  transform: translateX(6px);
-  box-shadow: var(--shadow);
+#section-kenangan .memory-card,
+#section-kenangan .memory-card.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
-.memory-dot {
-  position: absolute; left: 12px; top: 22px;
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--cream);
-  border: 2px solid var(--primary);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.65rem;
-}
-
-.memory-date {
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 4px;
-}
-.memory-title {
-  font-family: 'Palatino Linotype', serif;
-  font-style: italic;
-  font-size: 1.05rem; color: var(--text);
-  margin-bottom: 6px;
-}
-.memory-desc {
-  font-family: 'Georgia', serif;
-  font-size: 0.84rem; color: var(--text-light);
-  line-height: 1.65;
-}
 .memory-img {
-  width: 100%; border-radius: var(--radius-sm);
-  margin-top: 12px; aspect-ratio: 16/9;
-  object-fit: cover;
-  background: linear-gradient(135deg, var(--secondary), var(--cream));
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-light); font-size: 0.8rem; font-style: italic;
-  font-family: 'Georgia', serif;
-  overflow: hidden;
+  display: block !important;
+  border-radius: 26px !important;
+  overflow: hidden !important;
+  aspect-ratio: 4 / 3 !important;
 }
-.memory-img img { width: 100%; height: 100%; object-fit: cover; }
-.memory-img.placeholder { min-height: 80px; }
 
+.memory-img img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 22px !important;
+}
 /* ══════════════════════════════════════════════════════════
    SECTION 4 — GALERI
    ══════════════════════════════════════════════════════════ */
